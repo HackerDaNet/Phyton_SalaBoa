@@ -2,5 +2,5 @@ DB_CONFIG = {
     'host': 'localhost',
     'user': 'root',
     'password': 'root',
-    'database': 'banco_teste'
+    'database': 'banco_teste2'
 }
