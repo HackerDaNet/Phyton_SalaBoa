@@ -33,7 +33,7 @@ def produto_mais_caro():
     try:
         conexao = mysql.connector.connect(**DB_CONFIG)
         cursor = conexao.cursor()
-        cursor.execute("select max(preco) from produtos;")
+        cursor.execute("select max(nome) from produtos;")
         for p in cursor.fetchall():
             print(f"{p[0]}")
     except mysql.connector.Error as erro:
