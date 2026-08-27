@@ -25,7 +25,12 @@ def index():
     return render_template("index.html")
 @app.route("/produtos")
 def produtos():
-    return render_template("produtos.html")
+    lista=[
+        {"nome":"Notebook", "preco": 3499.00, "categoria":"eletronico"},
+        {"nome": "Celular", "preco": 2730.00, "categoria": "eletronico"},
+        {"nome": "Mouse", "preco": 99.00, "categoria": "eletronico"}
+    ]
+    return render_template("produtos.html", produtos=lista)
 
 #Inicia o servidor
 if __name__ == "__main__":
