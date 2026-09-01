@@ -3,10 +3,11 @@
     <h1>Lista de produtos</h1>
 <table border="1">
     <tr>
-        <th>#</th>
+        <th>ID</th>
         <th>Nome</th>
         <th>Preço</th>
         <th>Categoria</th>
+        <th>Quantidade</th>
     </tr>
     {%for p in produtos %}
     <tr>
@@ -14,6 +15,7 @@
         <td>{{ p.nome }}</td>
         <td>R$: {{ "%2.f"|format(p.preco) }}</td>
         <td>Categoria: {{ p.categoria }}</td>
+        <td>Quantidade: {{ p.quantidade }}</td>
     </tr>
     {% endfor %}
 </table>
@@ -22,4 +24,5 @@
     <a href="{{url_for('index')}}">Inicio</a>
     <a href="{{url_for('produtos')}}">Produtos</a>
     <a href="{{url_for('sobre')}}">Sobre</a>
+    <a href="{{url_for('catalogo')}}">Catalogo</a>
 </nav>

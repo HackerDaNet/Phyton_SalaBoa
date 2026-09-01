@@ -1,0 +1,22 @@
+<body>
+
+<nav>
+     <a href="{{url_for('index')}}">Inicio</a>
+     <a href="{{url_for('produtos')}}">Produtos</a>
+     <a href="{{url_for('sobre')}}">Sobre</a>
+     <a href="{{url_for('catalogo')}}">Catalogo</a>
+</nav>
+
+    {% if produto %}
+        {% if produto.quantidade == 0 %}
+            <p style="color: red"><strong>Produto fora estoque</strong></p>
+        {% elif produto.quantidade <5 %}
+            <p style="color: orange"><strong>Produto em pouco estoque</strong></p>
+        {% else %}
+            <p style="color: green"><strong>Produto em estoque</strong></p>
+        {%endif%}
+    {%else%}
+        <h1>Produto não encontrado</h1>
+    {%endif%}
+
+</body>
