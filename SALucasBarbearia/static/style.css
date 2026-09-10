@@ -1,0 +1,14 @@
+body{
+    display: grid;
+    background-color: darkgray;
+    font-family: "Comic Sans MS";
+    justify-content: center;
+}
+
+section{
+    display: grid;
+    background-color: lightsteelblue;
+    justify-content: center;
+    padding: 25px;
+    width: min-content;
+}
