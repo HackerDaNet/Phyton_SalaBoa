@@ -1,32 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamentos</title>
+</head>
 <body>
+    <nav>
+        <a href="{{ url_for('index') }}">Início</a>
+        <a href="{{ url_for('agendamentos') }}">Agendamentos</a>
+    </nav>
 
-<nav>
-    <a href="{{url_for('index')}}">Inicio</a>
-    <a href="{{url_for('agendamentos')}}">Agendamentos</a>
-</nav>
-<H1>Lista de itens</H1>
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Preço</th>
-        <th>Tipo</th>
-        <th>Disponivel</th>
-        <th>Ação</th>
-    </tr>
-    {%for i in item %}
-    {% if i.disponivel == 0 %}
-        <tr style="background-color: red">
+    <h1>Lista de agendamentos</h1>
+
+    <table border="1">
+        <tr>
+           <th>ID</th>
+           <th>Cliente</th>
+           <th>Telefone</th>
+           <th>Serviço</th>
+           <th>Preço</th>
+           <th>Barbeiro</th>
+           <th>Dia</th>
+           <th>Horário</th>
+           <th>Status</th>
+           <th>Ação</th>
+        </tr>
+
+        {% for item in agendamentos %}
+           <tr>
+               <td>{{ item.id }}</td>
+               <td>{{ item.cliente }}</td>
+               <td>{{ item.telefone or '-' }}</td>
+               <td>{{ item.servico }}</td>
+               <td>R$ {{ item.preco }}</td>
+               <td>{{ item.barbero }}</td>
+               <td>{{ item.dia }}</td>
+               <td>{{ item.horario }}</td>
+               <td>{{ item.status }}</td>
+               <td><a href="{{ url_for('detalhe_agendamento', id=item.id) }}">Detalhes</a></td>
+           </tr>
         {% else %}
-           <tr style="background-color: green">
-        {%endif%}
-        <td>{{ loop.index }}</td>
-        <td>{{ i.nome }}</td>
-        <td>R$: {{ "%2.f"|format(i.preco) }}</td>
-        <td>Tipo: {{ i.tipo }}</td>
-        <td>Disponivel: {{ i.disponivel }}</td>
-        <td><a href="{{url_for('detalhe_agendamento', id=i.id)}}">Detalhes</a></td>
-    </tr>
-    {% endfor %}
-</table>
+           <tr>
+               <td colspan="10">Nenhum agendamento encontrado.</td>
+           </tr>
+        {% endfor %}
+    </table>
 </body>
+</html>

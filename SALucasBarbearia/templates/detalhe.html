@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do agendamento</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Início</a>
+        <a href="{{ url_for('agendamentos') }}">Agendamentos</a>
+    </nav>
+
+    <h1>Detalhes do agendamento</h1>
+
+    {% if agendamento %}
+        <ul>
+            <li><strong>ID:</strong> {{ agendamento.id }}</li>
+            <li><strong>Cliente:</strong> {{ agendamento.cliente }}</li>
+            <li><strong>Telefone:</strong> {{ agendamento.telefone or '-' }}</li>
+            <li><strong>Serviço:</strong> {{ agendamento.servico }}</li>
+            <li><strong>Preço:</strong> R$ {{ agendamento.preco }}</li>
+            <li><strong>Barbeiro:</strong> {{ agendamento.barbero }}</li>
+            <li><strong>Dia:</strong> {{ agendamento.dia }}</li>
+            <li><strong>Horário:</strong> {{ agendamento.horario }}</li>
+            <li><strong>Status:</strong> {{ agendamento.status }}</li>
+        </ul>
+    {% else %}
+        <p>Agendamento não encontrado.</p>
+    {% endif %}
+</body>
+</html>

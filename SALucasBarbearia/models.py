@@ -1,20 +1,34 @@
+from dataclasses import dataclass
+
+
+@dataclass
 class Agendamento:
-    def __init__(self, cliente, telefone, servico, preco, barbero, dia, horario, status):
-        self.cliente = cliente
-        self.telefone = telefone
-        self.servico = servico
-        self.preco = preco
-        self.barbero = barbero
-        self.dia = dia
-        self.horario = horario
-        self.status = status
+    cliente: str
+    telefone: str
+    servico: str
+    preco: float
+    barbero: str
+    dia: str
+    horario: str
+    status: str = "Agendado"
+    id: int = None
 
     def converte_tupla(self):
-        return (self.cliente, self.telefone, self.servico, self.preco, self.barbero, self.dia, self.horario, self.status)
+        return (
+            self.cliente,
+            self.telefone,
+            self.servico,
+            self.preco,
+            self.barbero,
+            self.dia,
+            self.horario,
+            self.status,
+        )
 
     @staticmethod
     def reverte_tupla(tupla):
         agendamento = Agendamento(
+            id=tupla[0],
             cliente=tupla[1],
             telefone=tupla[2],
             servico=tupla[3],
@@ -22,18 +36,14 @@ class Agendamento:
             barbero=tupla[5],
             dia=tupla[6],
             horario=tupla[7],
-            status=tupla[8]
-
-
+            status=tupla[8],
         )
-        Agendamento.id = tupla[0]
         return agendamento
 
-
     def exibir(self):
-        print(f"{self.cliente} | Telefone: {self.telefone} | Serviço: {self.servico}| R$: {self.preco} | Barbero: {self.barbero} | Dia: {self.dia} | Horario: {self.horario} | Status: {self.status}")
-
-p1= Agendamento("Webber", "6969696969", "Low Fade", 1000.00, "Enaldinho", "2026-09-14", "10:30", "Agendado")
-
-p1.exibir()
+        print(
+            f"{self.cliente} | Telefone: {self.telefone} | Serviço: {self.servico} | "
+            f"R$: {self.preco} | Barbero: {self.barbero} | Dia: {self.dia} | "
+            f"Horario: {self.horario} | Status: {self.status}"
+        )
 
