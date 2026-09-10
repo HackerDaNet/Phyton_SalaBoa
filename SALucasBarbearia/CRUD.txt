@@ -1,0 +1,28 @@
+CREATE DATABASE barbearia;
+USE barbearia;
+
+CREATE TABLE agendamentos(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  cliente VARCHAR(100) NOT NULL,
+  telefone varchar(20),
+  servico VARCHAR(100),
+  preco decimal(10,2),
+  barbero varchar(50),
+  dia date not null,
+  horario varchar(5),
+  status varchar(20) default 'Agendado'
+
+);
+
+select * from agendamentos;
+
+INSERT INTO agendamentos (cliente, telefone, servico, preco, barbero, dia, horario, status)
+VALUES
+('Webber', '6969696969', 'Low Fade', 1000.00, 'Enaldinho', '2026-09-14', '10:30', 'Agendado'),
+('Cabelo', '40028922', 'Padrão', 999999.00, 'Murilo ADM', '2026-09-22', '10:30', 'Agendado'),
+('Felipe Manoel Ramos', '237468', 'Calvão d cria', 50.00, 'Enaldinho', '2026-09-10', '08:10', 'Concluido'),
+('Calvin Fraire', '67', 'Low balls', 30.00, 'Kid Makitinha', '2026-09-17', '13:30', 'Agendado'),
+('André Francelino', '1003223', 'Polimento', 87.15, 'Fabigoat', '2026-10-14', '09:30', 'Agendado'),
+('InteliJ', '0101010101', 'Java', 1010.01, 'Webber', '2011-09-11', '09:30', 'Concluido'),
+('Emerson', NULL, 'Corte do Gorila', 0.00, 'WEG', '2026-09-11', '07:30', 'Cancelado'),
+('Co-Pilot', '01010101011', 'POO', 1001.10, 'FLASK', '2026-10-22', '20:30', 'Agendado');
