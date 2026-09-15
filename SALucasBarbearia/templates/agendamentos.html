@@ -4,24 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendamentos</title>
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <section>
         <nav>
+            <h1>Lista de agendamentos</h1>
             <a href="{{ url_for('index') }}">Início</a>
             <a href="{{ url_for('agendamentos') }}">Agendamentos</a>
         </nav>
 
-        <h1>Lista de agendamentos</h1>
-        <select>
-            <option>Sem filtro</option>
-            <option>Concluido</option>
-            <option>Agendado</option>
-            <option>Cancelado</option>
+
+        <select onchange="filtrarStatus(this.value)">
+            <option value="" {% if not status %}selected{% endif %}>Sem filtro</option>
+            <option value="Concluido" {% if status == "Concluido" %}selected{% endif %}>Concluído</option>
+            <option value="Agendado" {% if status == "Agendado" %}selected{% endif %}>Agendado</option>
+            <option value="Cancelado" {% if status == "Cancelado" %}selected{% endif %}>Cancelado</option>
         </select>
 
-        <table border="1">
+        <script>
+            function filtrarStatus(status) {
+                if (status === "") {
+                    window.location.href = "/agendamentos";
+                } else {
+                    window.location.href = "/agendamentos/status/" + status;
+                }
+            }
+        </script>
+
+        <table>
             <tr>
                <th>ID</th>
                <th>Cliente</th>

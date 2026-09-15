@@ -10,5 +10,83 @@ section{
     background-color: lightsteelblue;
     justify-content: center;
     padding: 25px;
-    width: min-content;
+    width: 1200px;
+    border-radius: 10px;
+}
+
+select{
+    font-family: "Comic Sans MS";
+    border: none;
+    border-radius: 5px;
+    background-color: darkgray;
+    padding: 5px;
+    margin-bottom: 20px;
+    width: 250px;
+    justify-self: center;
+    font-size: 15px;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-self: center;
+}
+
+h1{
+    margin-right: 50px;
+}
+
+p{
+    justify-self: center;
+    font-size: 18px;
+}
+
+table{
+    border-collapse: collapse;
+    border: none;
+}
+
+th, td{
+    border: 2px solid grey;
+    background-color: darkgray;
+    padding: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: darkslateblue;
+    font-size: 18px;
+}
+
+a:hover{
+    color: black;
+    font-weight: bold;
+}
+
+option{
+    font-size: 15px;
+}
+
+ul{
+    display: grid;
+    background-color: darkgray;
+    justify-content: center;
+    justify-self: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    width: 500px;
+    border: 2px solid grey;
+    padding-bottom: -2px;
+}
+
+li{
+    border: 2px solid grey;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    width: 484px;
+    margin-top: -2px;
+    padding: 10px;
 }
